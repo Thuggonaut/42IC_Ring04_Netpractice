@@ -133,11 +133,15 @@ Each level has personal notes and questions I needed answered specific to the le
 - Layer 3 sends data packets intructions for the router, while layer 2 (Data Link Layer) sends instructions for the switch. Layer 1 (Physical Layer) is the physical ports.
 - A router will have a group of networks, e.g. `10.1.1.0/24` which means this group of network has IP addresses from `10.1.1.0 - 10.1.1.225`.
 - The **next-hop IP** is the address of the next router or device that will receive the packet.
+- A **point-to-point link** is a direct connection between two network devices, allowing them to communicate exclusively with each other:
+	- It connects two endpoints directly, such as two routers or a router and a switch.
+	- A default gateway sends data from one network to another.
+	- Often uses a /30 subnet mask, which allows for only two usable IP addresses (one for each device).
 
 ## GATEWAY:
 - The IP address of the router. 
 - Called the network gateway aka ROUTER. 
-- A default gateway sends data from one network to another.
+
 
 
 # WAN:
