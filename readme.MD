@@ -46,18 +46,18 @@ Each level has personal notes and questions I needed answered specific to the le
 
 ## SUBNET:
 - Identifies whether a machine/device belongs to a LAN, or a network external from the LAN. 
+- A subnet is a logical subdivision of an IP network, allowing for better management and organization.
 - A set of flags which defines the overall range of a LAN. 
 - For example:
 	- A laptop's IP is
 	`198.168.10.20`
 	- The printer's IP is 
 	`198.168.1.2` 
-	- The subnet that sits between the two devices may be
+	- The subnet mask that defines the range for these devices may be
 	`255.255.0.0`
-	- The `255`s are the flags that denotes the LAN range has a fixed range of 
-	`192.168`.
-	- This means, any device that falls within the `192.168` range is potentially a device in the LAN. 
-	- Because the last two subnet octets are `0`s, the last two octets of the IPs can be any number between `0` and `255` within the subnet range. 
+	- The `255`s in the subnet mask indicate which part of the IP address is the network portion (fixed) and which part is the host portion (variable).
+	- This means any device that falls within the `192.168.x.x` range is potentially a device in the LAN.
+	- The last two octets of the IPs can vary between `0` and `255` within the subnet range defined by the subnet mask.
 - Common subnet masks:
 	- 255.0.0.0 (/8)
 	- 255.255.0.0 (/16)
@@ -71,7 +71,7 @@ Each level has personal notes and questions I needed answered specific to the le
 		- If a network requires more host IPs, then we take 1 of the network bits and convert it to a 0, e.g. `111111111.11111111.11111110.00000000` giving us 2^9 = 510 usable IPs (we just SUBNET'ED). 
 			- Which will make it `255.255.254.0` in decimal, our new subnet mask.
 - ***Subnetting to create more networks***
-- e.g. our network: `192.168.1.0/24` (/24 is the subnet), `255.255.255.0` is the subnet mask. We need to create 4 networks:
+- e.g. our network: `192.168.1.0/24` (/24 is the subnet mask), `255.255.255.0` is the subnet mask. We need to create 4 networks:
 	- by hacking the Host bits (0s), flipping them to 1s
 	- More networks, requires more bits
 	- How many bits do we need to create 4 networks?
@@ -126,6 +126,7 @@ Each level has personal notes and questions I needed answered specific to the le
 ## ROUTER:
 - A networking device that sits between the LAN and the external network (e.g. internet). 
 - It connects us to the internet, and other networks.
+- Routers typically have multiple IP addresses for different networks. 
 - It forwards data packets between **different** computer networks. 
 - For example, a mobile phone wants to connect to the internet, the mobile sends a request to the router, then the router connects to the internet.
 - Routers use routing tables to determine the best path for data to travel.
@@ -133,14 +134,19 @@ Each level has personal notes and questions I needed answered specific to the le
 - Layer 3 sends data packets intructions for the router, while layer 2 (Data Link Layer) sends instructions for the switch. Layer 1 (Physical Layer) is the physical ports.
 - A router will have a group of networks, e.g. `10.1.1.0/24` which means this group of network has IP addresses from `10.1.1.0 - 10.1.1.225`.
 - The **next-hop IP** is the address of the next router or device that will receive the packet.
+
+## GATEWAY: 
+- A gateway usually has a single IP address (of the router) that serves as the entry/exit point for a network.
+- A gateway and router is often the same device, the only difference is their function:
+	- Router: Primarily routes data packets between different networks. It determines the best path for data to travel based on IP addresses.
+	- Gateway: Serves as a "gate" between two networks, allowing them to communicate. It can also translate different protocols or data formats, connecting networks that use different methods of communication, such as:
+		- TCP/IP to IPX/SPX
+		- HTTP to FTP
+		- Ethernet to Wi-Fi
 - A **point-to-point link** is a direct connection between two network devices, allowing them to communicate exclusively with each other:
 	- It connects two endpoints directly, such as two routers or a router and a switch.
 	- A default gateway sends data from one network to another.
 	- Often uses a /30 subnet mask, which allows for only two usable IP addresses (one for each device).
-
-## GATEWAY:
-- The IP address of the router. 
-- Called the network gateway aka ROUTER. 
 
 
 
@@ -177,7 +183,7 @@ Each level has personal notes and questions I needed answered specific to the le
 
 
 
-# Resources:
+# References:
 - Networking basics: https://www.youtube.com/watch?v=_IOZ8_cPgu8
 - You Suck at Subnetting, Playlist by Network Chuck: https://www.youtube.com/playlist?list=PLIhvC56v63IKrRHh3gvZZBAGvsvOhwrRF
 - IP Subnet Calculator: https://www.calculator.net/ip-subnet-calculator.html
