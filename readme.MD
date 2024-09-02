@@ -1,10 +1,10 @@
 # Net_Practice
 - System Administration and Networking Practice
-- Solve network problems 
+- Solve network problems
+- **[Check out my guide on YT here](https://youtu.be/HQUw0CfQWAM)**
 
 ### Note:
 Each level has personal notes and questions I needed answered specific to the level to help me progress.
-**[Check out my guide on YT here](https://youtu.be/HQUw0CfQWAM)**
 
 # Review:
 
