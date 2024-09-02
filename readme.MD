@@ -4,7 +4,7 @@
 
 ### Note:
 Each level has personal notes and questions I needed answered specific to the level to help me progress.
-**[Check out my guide on YT here]**(https://youtu.be/HQUw0CfQWAM) 
+**[Check out my guide on YT here](https://youtu.be/HQUw0CfQWAM)**
 
 # Review:
 
